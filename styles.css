@@ -1,0 +1,779 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #025373;
+    --secondary-color: #04738C;
+    --color-three: #9fb2b6;
+    --color-four: #260B0B;
+    --color-five: #F2F2F2;
+    --accent-color: var(--color-five);
+    --accent-hover: var(--color-five);
+    --text-primary: var(--color-five);
+    --text-secondary: var(--color-three);
+    --text-accent-color: var(--color-four);
+    --main-border: var(--color-three);
+    --background-gradient: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    --card-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    --transition-smooth: all 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+    font-family: 'Segoe UI', Trebuchet MS, sans-serif;
+    background: var(--background-gradient);
+    color: var(--text-primary);
+    line-height: 1.8;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.apresentacao,
+.nota,
+.descricao,
+.habilidades,
+.experiencias-profissionais,
+.portifolio {
+    margin: 0.5rem auto;
+    padding: 0.5rem;
+    max-width: 90%;
+    border-radius: 5px;
+    backdrop-filter: blur(10px);
+    background: var(--secondary-color);
+    border: 1px solid var(--main-border);
+    box-shadow: var(--card-shadow);
+    animation: slideInUp 0.8s ease-out;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.apresentacao {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    padding: 1rem 1rem;
+    flex-direction: row;
+    height: 200px;
+}
+
+.dados-pessoais h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: var(--text-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: fadeInScale 0.8s ease-out;
+}
+
+.dados-pessoais h3 {
+    margin: 0.5rem;
+}
+
+
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.dados-pessoais {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
+
+.dados-pessoais p {
+    font-size: 1.1rem;
+    margin: 0.5rem;
+    color: var(--text-secondary);
+    transition: var(--transition-smooth);
+}
+
+.dados-pessoais p strong {
+    color: var(--text-primary);
+}
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+}
+
+.menu a {
+    width: 33%;
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    transition: var(--transition-smooth);
+}
+
+.menu a:hover {
+    background: var(--text-accent-color);
+    border-color: var(--color-five);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+}
+
+.nota {
+    text-align: center;
+    font-style: italic;
+    position: relative;
+    padding: 1rem;
+}
+
+.nota p {
+    font-size: 1.05rem;
+    color: var(--text-primary);
+    letter-spacing: 0.3px;
+}
+
+.descricao {
+    text-align: justify;
+}
+
+.descricao p {
+    font-size: 1rem;
+    line-height: 1.9;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.descricao strong {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    position: relative;
+    display: inline-block;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--text-accent-color), transparent);
+    border-radius: 2px;
+    animation: expandWidth 0.8s ease-out;
+}
+
+@keyframes expandWidth {
+    from {
+        width: 0;
+    }
+    to {
+        width: 60px;
+    }
+}
+
+.experiencia {
+    background: rgba(51, 51, 51, 0.664);
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 8px;
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+.experiencia::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.1), transparent);
+    transition: 0.6s;
+}
+
+.experiencia:hover::before {
+    left: 100%;
+}
+
+.experiencia:hover {
+    background: rgba(255, 255, 255, 0.8);
+    border-left-color: #474747;
+    transform: translateX(8px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.experiencia p {
+    margin: 0.6rem 0;
+    color: var(--text-secondary);
+    transition: var(--transition-smooth);
+}
+
+.experiencia:hover p {
+    color: var(--text-accent-color);
+}
+
+.experiencia p strong {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.experiencia:hover p strong {
+    color: var(--text-accent-color);
+}
+
+.experiencia ul {
+    list-style: none;
+    margin-top: 1rem;
+    padding-left: 1.5rem;
+}
+
+.experiencia:hover ul strong {
+    color: var(--text-accent-color);
+}
+
+.experiencia li {
+    margin: 0.8rem 0;
+    color: var(--text-secondary);
+    position: relative;
+    padding-left: 1.2rem;
+    transition: var(--transition-smooth);
+}
+
+.experiencia li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-weight: bold;
+    transition: var(--transition-smooth);
+}
+
+.experiencia:hover li {
+    color: var(--text-accent-color);
+}
+
+.experiencia:hover li::before {
+    color: var(--text-accent-color);
+    transform: translateX(4px);
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
+    gap: 2rem;
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.exemplo-portifolio {
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(26, 31, 58, 0.9) 100%);
+    padding: 1.0rem;
+    margin-top: 1rem;
+    border-radius: 10px;
+    border: 1px solid rgb(255, 255, 255);
+    transition: var(--transition-smooth);
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.exemplo-portifolio::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--text-accent-color), transparent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.6s ease-out;
+}
+
+.exemplo-portifolio:hover::before {
+    transform: scaleX(1);
+}
+
+.exemplo-portifolio:hover {
+    background: linear-gradient(135deg, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0.212) 100%);
+    border-color: rgb(0, 0, 0);
+    transform: translateY(-10px);
+    box-shadow: 0 12px 40px rgba(255, 255, 255, 0.2);
+}
+
+/* Portfolio */
+
+.portfolio-content {
+    text-align: justify;
+    font-size: 1.0rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.8rem;
+    transition: var(--transition-smooth);
+}
+
+.portfolio-content p {
+    margin-bottom: 0.8rem;
+}
+
+.nome-projeto {
+    text-align: center;
+}
+
+.portfolio-content a {
+    text-align: center;
+    display: block;
+    margin: 1rem 1rem 0rem 1rem;
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    transition: var(--transition-smooth);
+}
+
+.portfolio-content a:hover {
+    background: var(--text-accent-color);
+    border-color: var(--text-accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+}
+
+.h3-portifolio {
+    text-align: center;
+    font-size: 1.3rem;
+    color: var(--accent-color);
+    margin-bottom: 0.8rem;
+    transition: var(--transition-smooth);
+}
+
+.portfolio-content:hover p {
+    color: var(--text-accent-color);
+}
+
+.exemplo-portifolio:hover .portfolio-content h3 {
+    color: var(--text-accent-color);
+}
+
+.portfolio-description {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 1.2rem;
+    flex-grow: 1;
+}
+
+.portfolio-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: auto;
+}
+
+.tech-tag {
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--accent-color);
+    margin-top: 1rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: var(--transition-smooth);
+}
+
+.tech-tag:hover {
+    background: rgba(0, 0, 0, 0.25);
+    border-color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+/* Configurações das Imagens*/
+
+.portfolio-imagens {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    flex-direction: column;
+}
+
+.imagem-portifolio {
+    width: 80%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: -4px 4px 15px rgba(0,0,0,0.3);
+    cursor: pointer;
+    transition: transform 0.3s ease, z-index 0.3s ease;
+    position: relative;
+    z-index: 1;
+    margin-bottom: -20px;
+}
+
+.imagem-portifolio:hover {
+    transform: translateY(-15px) scale(1.05);
+    z-index: 10;
+}
+
+/* --- Estilos do Modal e Slider --- */
+.modal-imagens {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    justify-content: center;
+    align-items: center;
+}
+
+.conteudo-modal {
+    max-width: 80%;
+    max-height: 85vh;
+    border-radius: 8px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+    animation: zoomIn 0.3s ease;
+    transition: opacity 0.5s ease-in-out;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.fechar-modal {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.fechar-modal:hover { color: #bbb; }
+
+.seta-modal {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    font-size: 24px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.seta-modal:hover { background: rgba(0,0,0,0.8); }
+.anterior { left: 5%; }
+.proxima { right: 5%; }
+
+/*
+   Utilidades
+*/
+
+.fade-in {
+    animation: fadeIn 0.8s ease-out;
+}
+
+.slide-in-left {
+    animation: slideInLeft 0.8s ease-out;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.slide-in-right {
+    animation: slideInRight 0.8s ease-out;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Habilidades */
+
+.habilidades {
+    margin: 0.5rem auto !important;
+}
+
+.skill-category {
+    background: rgba(51, 51, 51, 0.664);
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 8px;
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-category::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.1), transparent);
+    transition: 0.6s;
+}
+
+.skill-category:hover::before {
+    left: 100%;
+}
+
+.skill-category:hover {
+    background: rgba(255, 255, 255, 0.8);
+    border-left-color: #474747;
+    transform: translateX(8px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.skill-category p {
+    margin: 0.6rem 0;
+    color: var(--text-secondary);
+    transition: var(--transition-smooth);
+}
+
+.skill-category:hover p {
+    color: var(--text-accent-color);
+}
+
+.skill-category:hover h3 {
+    color: var(--text-accent-color);
+}
+
+.skill-category p strong {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.skill-category:hover p strong {
+    color: var(--text-accent-color);
+}
+
+/* Portifolio */
+
+.portfolio-header {
+    margin-bottom: 1rem;
+    color: var(--accent-color);
+}
+
+.nome-projeto {
+    color: var(--accent-color);
+    font-weight: 600;
+    margin-bottom: 0.5rem !important;
+    text-align: center !important;
+}
+
+.projeto-status {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-style: italic;
+    text-align: left !important;
+}
+
+.projeto-status a:hover {
+    text-decoration: underline;
+}
+
+/*
+   Responsividade
+*/
+
+@media (max-width: 992px) {
+    .dados-pessoais,
+    .nota,
+    .descricao,
+    .experiencias-profissionais,
+    .portifolio {
+        padding: 1.5rem;
+    }
+
+    .dados-pessoais h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
+        gap: 1.0rem;
+    }
+
+    .experiencia {
+        padding: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .dados-pessoais,
+    .nota,
+    .descricao,
+    .experiencias-profissionais,
+    .portifolio {
+        padding: 1.5rem;
+    }
+
+    .apresentacao {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .dados-pessoais {
+        width: 100%;
+    }
+    
+    .menu {
+        width: 100%;
+    }
+
+    .menu a {
+        max-width: 25%;
+    }
+
+    .dados-pessoais h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: repeat(auto-fit, minmax(80%, 1fr));
+        gap: 1.0rem;
+    }
+
+    .experiencia {
+        padding: 1.2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .dados-pessoais,
+    .nota,
+    .descricao,
+    .experiencias-profissionais,
+    .portifolio {
+        padding: 1rem;
+        border-radius: 8px;
+    }
+
+    .dados-pessoais {
+        width: 100%;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .dados-pessoais h1 {
+        font-size: 1.5rem;
+    }
+
+    .dados-pessoais a {
+        display: block;
+        margin: 0.5rem 0;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .portfolio-tech {
+        gap: 0.4rem;
+    }
+
+    .tech-tag {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.6rem;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--primary-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 4px;
+    transition: var(--transition-smooth);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-hover);
+}
