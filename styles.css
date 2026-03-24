@@ -74,7 +74,7 @@ html {
 .dados-pessoais h1 {
     font-size: 2.5rem;
     font-weight: 700;
-    background: var(--text-primary);
+    color: var(--text-primary);
 }
 
 .dados-pessoais h3 {
