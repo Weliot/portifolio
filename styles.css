@@ -75,10 +75,6 @@ html {
     font-size: 2.5rem;
     font-weight: 700;
     background: var(--text-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: fadeInScale 0.8s ease-out;
 }
 
 .dados-pessoais h3 {
